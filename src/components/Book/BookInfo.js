@@ -1,11 +1,21 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
 
-const BookInfo = () => {
+const BookInfo = ({ books, dispatch, bookDetails }) => {
   return (
     <Fragment>
       <h2>Book Details</h2>
-      <div className='alert alert-secondary' role='alert'>
-        There is no post selected yet. Please select!
+      <div className="alert alert-secondary" role="alert">
+        {books.length == 0 ? (
+          <p className="text-danger">
+            There is no book selected yet. Please select!
+          </p>
+        ) : (
+          <>
+            <h3>{bookDetails?.title}</h3>
+            <h4>-{bookDetails?.author}</h4>
+            <p>{bookDetails?.description}</p>
+          </>
+        )}
       </div>
       {/* <div>
         <p className='fw-bold'>Title:</p>
